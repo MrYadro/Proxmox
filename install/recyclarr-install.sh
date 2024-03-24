@@ -23,7 +23,7 @@ msg_ok "Installed Dependencies"
 
 msg_info "Installing Recyclarr"
 wget -q https://github.com/recyclarr/recyclarr/releases/latest/download/recyclarr-linux-x64.tar.xz
-tar xJ --overwrite -C /usr/local/bin
+tar -xf --overwrite recyclarr-linux-x64.tar.xz -C /usr/local/bin
 chmod 775 /usr/local/bin/recyclarr
 msg_ok "Installed Recyclarr"
 
