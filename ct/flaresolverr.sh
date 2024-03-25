@@ -57,10 +57,11 @@ function default_settings() {
 
 function update_script() {
 header_info
-if [[ ! -f /usr/local/bin/recyclarr ]]; then msg_error "No ${APP} Installation Found!"; exit; fi
+if [[ ! -f /opt/flaresolverr/flaresolverr ]]; then msg_error "No ${APP} Installation Found!"; exit; fi
 msg_info "Updating $APP LXC"
-wget -q https://github.com/recyclarr/recyclarr/releases/latest/download/recyclarr-linux-x64.tar.xz
-tar xJ --overwrite -C /usr/local/bin
+RELEASE=$(wget -q https://github.com/FlareSolverr/FlareSolverr/releases/latest -O - | grep "title>Release" | cut -d " " -f 4)
+wget -q https://github.com/FlareSolverr/FlareSolverr/releases/download/$RELEASE/flaresolverr_linux_x64.tar.gz
+tar -xzf flaresolverr_linux_x64.tar.gz -C /opt
 apt-get update &>/dev/null
 apt-get -y upgrade &>/dev/null
 msg_ok "Updated $APP LXC"
