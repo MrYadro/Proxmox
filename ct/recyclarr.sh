@@ -61,7 +61,7 @@ header_info
 if [[ ! -f /usr/local/bin/recyclarr ]]; then msg_error "No ${APP} Installation Found!"; exit; fi
 msg_info "Updating $APP LXC"
 wget -q https://github.com/recyclarr/recyclarr/releases/latest/download/recyclarr-linux-x64.tar.xz
-tar xJ --overwrite -C /usr/local/bin
+tar -xJf recyclarr-linux-x64.tar.xz -C /usr/local/bin
 apt-get update &>/dev/null
 apt-get -y upgrade &>/dev/null
 msg_ok "Updated $APP LXC"
