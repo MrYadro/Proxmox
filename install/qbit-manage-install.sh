@@ -31,7 +31,7 @@ mkdir -p /var/lib/qbit_manage/
 RELEASE=$(wget -q https://github.com/StuffAnThings/qbit_manage/releases/latest -O - | grep "title>Release" | cut -d " " -f 4)
 wget -q https://github.com/StuffAnThings/qbit_manage/archive/refs/tags/$RELEASE.zip
 unzip -qq $RELEASE -d /opt
-mv qbit_manage-$RELEASE.zip qbit_manage.zip
+mv qbit_manage-{$RELEASE:1} qbit_manage
 chmod 775 /opt/qbit_manage /var/lib/qbit_manage/
 python3 -m pip install -q -r /opt/qbit_manage/requirements.txt
 cp config/config.yml.sample config/config.yml

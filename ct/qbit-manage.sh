@@ -60,7 +60,7 @@ if [[ ! -d /var/lib/qbit_manage/ ]]; then msg_error "No ${APP} Installation Foun
 RELEASE=$(wget -q https://github.com/StuffAnThings/qbit_manage/releases/latest -O - | grep "title>Release" | cut -d " " -f 4)
 wget -q https://github.com/StuffAnThings/qbit_manage/archive/refs/tags/$RELEASE.zip
 unzip -qq $RELEASE -d /opt/qbit_manage
-mv qbit_manage-$RELEASE.zip qbit_manage.zip
+mv qbit_manage-{$RELEASE:1} qbit_manage
 chmod 775 /opt/qbit_manage /var/lib/qbit_manage/
 python3 -m pip install -q -r /opt/qbit_manage/requirements.txt
 msg_info "Updating $APP LXC"
