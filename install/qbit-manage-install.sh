@@ -34,7 +34,7 @@ unzip -qq $RELEASE -d /opt
 mv /opt/qbit_manage-${RELEASE:1} /opt/qbit_manage
 chmod 775 /opt/qbit_manage /var/lib/qbit_manage/
 python3 -m pip install -q -r /opt/qbit_manage/requirements.txt
-cp config/config.yml.sample config/config.yml
+cp /opt/qbit_manage/config/config.yml.sample /opt/qbit_manage/config/config.yml
 msg_ok "Installed qbit_manage"
 
 msg_info "Creating Service"
