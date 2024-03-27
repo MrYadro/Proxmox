@@ -31,6 +31,7 @@ $STD make
 msg_ok "Built vlmcsd"
 
 msg_info "Creating Service"
+mkdir -p /etc/vlmcsd/
 mv bin/vlmcs /usr/bin
 mv bin/vlmcsd /usr/bin
 mv etc/vlmcsd.ini /usr/share/vlmcsd
