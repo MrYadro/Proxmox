@@ -28,7 +28,7 @@ msg_info "Building vlmcsd (Patience)"
 $STD git clone --branch master --single-branch https://github.com/Wind4/vlmcsd.git
 cd vlmcsd
 $STD make
-msg_ok "Built vlmcsd ${VAULT}"
+msg_ok "Built vlmcsd"
 
 msg_info "Creating Service"
 mv bin/vlmcs /usr/bin
