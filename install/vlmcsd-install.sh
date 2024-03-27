@@ -59,7 +59,6 @@ ExecStart=/usr/bin/vlmcsd -i /etc/vlmcsd/vlmcsd.ini -D
 
 [Install]
 WantedBy=multi-user.target
-systemctl daemon-reload
 EOF
 $STD systemctl enable --now vlmcsd.service
 msg_ok "Created Service"
