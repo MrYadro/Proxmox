@@ -77,3 +77,5 @@ pct set $CTID -memory 512
 pct set $CTID -cores 1
 msg_ok "Set Container to Normal Resources"
 msg_ok "Completed Successfully!\n"
+echo -e "${APP} should be reachable by using the following port.
+         ${BL}${IP}:1688${CL}\n"
