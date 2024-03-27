@@ -46,7 +46,8 @@ chmod +x /usr/bin/vlmcsd
 # chmod +r /opt/vaultwarden/.env
 
 service_path="/etc/systemd/system/vlmcsd.service"
-echo "[Unit]
+cat <<EOF >/etc/systemd/system/vlmcsd.service
+[Unit]
 Description=Vlmcsd (KMS Emulator in C)
 After=network.target
 
@@ -57,8 +58,9 @@ Group=nogroup
 ExecStart=/usr/bin/vlmcsd -i /etc/vlmcsd/vlmcsd.ini -D
 
 [Install]
-WantedBy=multi-user.target >$service_path
+WantedBy=multi-user.target
 systemctl daemon-reload
+EOF
 $STD systemctl enable --now vlmcsd.service
 msg_ok "Created Service"
 
