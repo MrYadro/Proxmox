@@ -36,8 +36,8 @@ mv bin/vlmcs /usr/bin
 mv bin/vlmcsd /usr/bin
 mv etc/vlmcsd.ini /usr/share/vlmcsd
 mv etc/vlmcsd.kmd /usr/share/vlmcsd
-chmod +x bin/vlmcs
-chmod +x bin/vlmcsd
+chmod +x /usr/bin/vlmcs
+chmod +x /usr/bin/vlmcsd
 
 # chown -R vaultwarden:vaultwarden /opt/vaultwarden/
 # chown root:root /opt/vaultwarden/bin/vaultwarden
