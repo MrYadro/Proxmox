@@ -34,8 +34,8 @@ msg_info "Creating Service"
 mkdir -p /etc/vlmcsd/
 mv bin/vlmcs /usr/bin
 mv bin/vlmcsd /usr/bin
-mv etc/vlmcsd.ini /usr/share/vlmcsd
-mv etc/vlmcsd.kmd /usr/share/vlmcsd
+mv etc/vlmcsd.ini /etc/vlmcsd
+mv etc/vlmcsd.kmd /etc/vlmcsd
 chmod +x /usr/bin/vlmcs
 chmod +x /usr/bin/vlmcsd
 
