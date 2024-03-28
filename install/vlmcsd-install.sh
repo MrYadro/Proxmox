@@ -30,7 +30,7 @@ cd vlmcsd
 $STD make
 msg_ok "Built vlmcsd"
 
-msg_info "Creating Service"
+msg_info "Installing vlmcsd"
 mkdir -p /etc/vlmcsd/
 mv bin/vlmcs /usr/bin
 mv bin/vlmcsd /usr/bin
@@ -38,14 +38,9 @@ mv etc/vlmcsd.ini /etc/vlmcsd
 mv etc/vlmcsd.kmd /etc/vlmcsd
 chmod +x /usr/bin/vlmcs
 chmod +x /usr/bin/vlmcsd
+msg_info "Installed vlmcsd"
 
-# chown -R vaultwarden:vaultwarden /opt/vaultwarden/
-# chown root:root /opt/vaultwarden/bin/vaultwarden
-# chmod +x /opt/vaultwarden/bin/vaultwarden
-# chown -R root:root /opt/vaultwarden/web-vault/
-# chmod +r /opt/vaultwarden/.env
-
-service_path="/etc/systemd/system/vlmcsd.service"
+msg_info "Creating Service"
 cat <<EOF >/etc/systemd/system/vlmcsd.service
 [Unit]
 Description=Vlmcsd (KMS Emulator in C)
