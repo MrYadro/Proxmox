@@ -22,17 +22,15 @@ $STD apt-get -qqy install \
   mc
 msg_ok "Installed Dependencies"
 
-msg_info "Installing Notifiarr"
-# $STD curl -s https://golift.io/repo.sh | $STD bash -s - notifiarr
-  curl -sL https://packagecloud.io/golift/pkgs/gpgkey | apt-key add -
-  curl -sL https://packagecloud.io/golift/unstable/gpgkey | apt-key add -
-  echo "Creating /etc/apt/sources.list.d/golift.list ..."
-  tee /etc/apt/sources.list.d/golift.list <<EOF
-deb https://packagecloud.io/golift/pkgs/ubuntu focal main
-EOF
-  $STD apt-get update
-  $STD apt-get install notifiarr
+msg_info "Installing Notifiarr Repository"
+mkdir -p /etc/apt/keyrings
+curl -fsSL https://packagecloud.io/golift/pkgs/gpgkey | gpg --dearmor -o /usr/share/keyrings/golift-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/golift-archive-keyring.gpg] https://packagecloud.io/golift/pkgs/ubuntu focal main" >/etc/apt/sources.list.d/golift.list
+msg_ok "Installed Notifiarr Repository"
 
+msg_info "Installing Notifiarr"
+apt-get update &>/dev/null
+apt-get install -y notifiarr &>/dev/null
 msg_ok "Installed Notifiarr"
 
 motd_ssh
