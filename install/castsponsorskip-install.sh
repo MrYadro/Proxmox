@@ -24,7 +24,7 @@ msg_ok "Installed Dependencies"
 msg_info "Installing CastSponsorSkip"
 echo 'deb [trusted=yes] https://apt.gabe565.com /' | sudo tee /etc/apt/sources.list.d/gabe565.list
 $STD apt update
-$STDsudo apt install castsponsorskip
+$STD sudo apt install castsponsorskip
 msg_ok "Installed CastSponsorSkip"
 
 msg_info "Creating Service"
