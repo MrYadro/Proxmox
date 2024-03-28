@@ -23,7 +23,7 @@ $STD apt-get -qqy install \
 msg_ok "Installed Dependencies"
 
 msg_info "Installing Notifiarr"
-$STD curl -s https://golift.io/repo.sh | sudo bash -s - notifiarr
+$STD curl -s https://golift.io/repo.sh | $STD bash -s - notifiarr
 msg_ok "Installed Notifiarr"
 
 motd_ssh
