@@ -23,7 +23,16 @@ $STD apt-get -qqy install \
 msg_ok "Installed Dependencies"
 
 msg_info "Installing Notifiarr"
-$STD curl -s https://golift.io/repo.sh | $STD bash -s - notifiarr
+# $STD curl -s https://golift.io/repo.sh | $STD bash -s - notifiarr
+  curl -sL https://packagecloud.io/golift/pkgs/gpgkey | apt-key add -
+  curl -sL https://packagecloud.io/golift/unstable/gpgkey | apt-key add -
+  echo "Creating /etc/apt/sources.list.d/golift.list ..."
+  tee /etc/apt/sources.list.d/golift.list <<EOF
+deb https://packagecloud.io/golift/pkgs/ubuntu focal main
+EOF
+  $STD apt-get update
+  $STD apt-get install notifiarr
+
 msg_ok "Installed Notifiarr"
 
 motd_ssh
