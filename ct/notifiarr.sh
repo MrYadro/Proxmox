@@ -8,17 +8,17 @@ source <(curl -s https://raw.githubusercontent.com/MrYadro/Proxmox/main/misc/bui
 function header_info {
   clear
   cat <<"EOF"
-   ______           __  _____                                   _____ __   _     
-  / ____/___ ______/ /_/ ___/____  ____  ____  _________  _____/ ___// /__(_)___ 
- / /   / __ `/ ___/ __/\__ \/ __ \/ __ \/ __ \/ ___/ __ \/ ___/\__ \/ //_/ / __ \
-/ /___/ /_/ (__  ) /_ ___/ / /_/ / /_/ / / / (__  ) /_/ / /   ___/ / ,< / / /_/ /
-\____/\__,_/____/\__//____/ .___/\____/_/ /_/____/\____/_/   /____/_/|_/_/ .___/ 
-                         /_/                                            /_/                                                           
+    _   __      __  _ _____                
+   / | / /___  / /_(_) __(_)___ ___________
+  /  |/ / __ \/ __/ / /_/ / __ `/ ___/ ___/
+ / /|  / /_/ / /_/ / __/ / /_/ / /  / /    
+/_/ |_/\____/\__/_/_/ /_/\__,_/_/  /_/     
+                                           
 EOF
 }
 header_info
 echo -e "Loading..."
-APP="CastSponsorSkip"
+APP="Notifiarr"
 var_disk="1"
 var_cpu="1"
 var_ram="512"
@@ -53,7 +53,7 @@ function default_settings() {
 }
 
 function update_script() {
-  if [[ ! -f /etc/systemd/system/castsponsorskip.service ]]; then
+  if [[ ! -f /etc/systemd/system/notifiarr.service ]]; then
     msg_error "No ${APP} Installation Found!"
     exit
   fi
@@ -66,3 +66,5 @@ build_container
 description
 
 msg_ok "Completed Successfully!\n"
+echo -e "${APP} should be reachable by going to the following URL.
+         ${BL}http://${IP}:5454${CL} \n"
