@@ -18,6 +18,7 @@ $STD apt-get update
 $STD apt-get -qqy install \
   curl \
   sudo \
+  gpg \
   mc
 msg_ok "Installed Dependencies"
 
