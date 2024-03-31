@@ -19,7 +19,7 @@ EOF
 header_info
 echo -e "Loading..."
 APP="vlmcsd"
-var_disk="6"
+var_disk="2"
 var_cpu="4"
 var_ram="4096"
 var_os="debian"
