@@ -22,7 +22,7 @@ $STD apt-get -qqy install \
 msg_ok "Installed Dependencies"
 
 msg_info "Installing Caddy"
-wget "https://caddyserver.com/api/download?os=linux&arch=amd64&p=github.com%2Fcaddy-dns%2Fdigitalocean&p=github.com%2Fmholt%2Fcaddy-ratelimit&idempotency=55780275387941" -O caddy
+$STD wget -qL "https://caddyserver.com/api/download?os=linux&arch=amd64&p=github.com%2Fcaddy-dns%2Fdigitalocean&p=github.com%2Fmholt%2Fcaddy-ratelimit&idempotency=55780275387941" -O caddy
 chmod +x caddy
 mv caddy /usr/bin/
 $STD groupadd --system caddy
