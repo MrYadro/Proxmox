@@ -59,6 +59,11 @@ AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 [Install]
 WantedBy=multi-user.target
 EOF
+cat <<EOF >/etc/caddy/Caddyfile
+:2015
+
+respond "Hello, world!"
+EOF
 $STD systemctl enable --now caddy.service
 msg_ok "Created Service"
 
