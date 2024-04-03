@@ -38,19 +38,13 @@ msg_ok "Installed cross-seed"
 msg_info "Creating Service"
 cat <<EOF >/etc/systemd/system/cross-seed.service
 [Unit]
-Description=cross-seed Daemon
-After=syslog.target network.target
-
+Description=cross-seed daemon
 [Service]
-UMask=0002
-Restart=on-failure
-RestartSec=5
+User=root
+Group=root
+Restart=always
 Type=simple
 ExecStart=cross-seed daemon
-KillSignal=SIGINT
-TimeoutStopSec=20
-SyslogIdentifier=cross-seed
-
 [Install]
 WantedBy=multi-user.target
 EOF
